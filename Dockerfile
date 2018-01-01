@@ -7,6 +7,7 @@ RUN apt-get update && \
     mkdir /run/php && \
     sed -i -- 's|listen = /run/php/php7.0-fpm.sock|listen = 0.0.0.0:9000|g' /etc/php/7.0/fpm/pool.d/www.conf && \
     sed -i -- 's|upload_max_filesize = 2M|upload_max_filesize = 10M|g' /etc/php/7.0/fpm/php.ini
+    sed -i -- 's|post_max_size = 8M|post_max_size = 20M|g' /etc/php/7.0/fpm/php.ini
 	
 EXPOSE 9000
 
