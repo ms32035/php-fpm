@@ -2,7 +2,7 @@ FROM ubuntu:17.10
 
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
-    apt-get -y install php-fpm php-redis php-xml php-json php-mysql php-curl less sudo wget && \
+    apt-get -y install php-fpm php-redis php-xml php-json php-mysql php-curl php-imagick less sudo wget && \
     wget -P /srv/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     mkdir /run/php && \
     sed -i -- 's|listen = /run/php/php7.1-fpm.sock|listen = 0.0.0.0:9000|g' /etc/php/7.1/fpm/pool.d/www.conf && \
