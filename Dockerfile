@@ -1,7 +1,9 @@
-FROM ubuntu:20.10
+FROM ubuntu:21.04
+
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
-    apt-get -y dist-upgrade && \
+    apt-get -yqq dist-upgrade && \
     apt-get -yqq install php-fpm php-redis php-xml php-json php-mysql php-curl php-imagick less sudo wget && \
     wget -P /srv/ https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     sed -i -- 's|listen = /run/php/php7.4-fpm.sock|listen = 0.0.0.0:9000|g' /etc/php/7.4/fpm/pool.d/www.conf && \
